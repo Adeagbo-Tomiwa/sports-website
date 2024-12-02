@@ -33,12 +33,105 @@
    <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
    <script src="js/3dslider.js"></script>
    </head>
+   <style>
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 111111; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5px auto; /* 15% from the top and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+  </style>
    <body class="game" data-spy="scroll" data-target=".header">
       <!-- LOADER -->
       <div id="preloader">
          <img class="preloader" src="images/loading-img.gif" alt="">
       </div>
       <!-- END LOADER -->
+
+
+
+<!-- The Modal -->
+<div id="id01" class="modal">
+
+
+   <div class="container">
+      <div class="close-btn">
+         <i onclick="document.getElementById('id01').style.display='none'"
+         class="fa fa-times" title="Close Modal"></i>
+     </div>
+		<form action="#" class="login active">
+            <h2 class="title">Welcome User!</h2>
+			<div class="form-group">
+				<label for="email">Email</label>
+				<div class="input-group">
+					<input type="email" id="email" placeholder="Email address">
+					<i class='bx bx-envelope'></i>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="password">Password</label>
+				<div class="input-group">
+					<input type="password" pattern=".{8,}" id="password" placeholder="Your password">
+					<i class='bx bx-lock-alt' ></i>
+				</div>
+				<!-- <span class="help-text">At least 8 characters</span> -->
+			</div>
+			<button type="submit" class="btn-submit">Login</button>
+			<a href="#">Forgot password?</a>
+			<p>I don't have an account. <a href="#" onclick="switchForm('register', event)">Register</a></p>
+		</form>
+
+		<form action="#" class="register">
+			<h2 class="title">Register your account</h2>
+			<div class="form-group">
+				<label for="email">Email</label>
+				<div class="input-group">
+					<input type="email" id="email" placeholder="Email address">
+					<i class='bx bx-envelope'></i>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="password">Password</label>
+				<div class="input-group">
+					<input type="password" pattern=".{8,}" id="password" placeholder="Your password">
+					<i class='bx bx-lock-alt' ></i>
+				</div>
+				<span class="help-text">At least 8 characters</span>
+			</div>
+			<div class="form-group">
+				<label for="confirm-pass">Confirm password</label>
+				<div class="input-group">
+					<input type="password" id="confirm-pass" placeholder="Enter password again">
+					<i class='bx bx-lock-alt' ></i>
+				</div>
+				<span class="help-text">Confirm password must be same with password</span>
+			</div>
+			<button type="submit" class="btn-submit">Register</button>
+			<p>I already have an account. <a href="#" onclick="switchForm('login', event)">Login</a></p>
+		</form>
+	</div>
+ 
+  
+
+
+</div>
+
       <section id="top">
          <header>
             <div class="container">
@@ -50,7 +143,8 @@
                               <a href="index.html"><img src="images/logo.png" alt="#" /></a>
                            </div>
                         </div>
-                     </div>
+                     </div>k
+
                      <div class="col-md-6">
                         <div class="right_top_section">
                            <!-- social icon -->
@@ -64,13 +158,13 @@
                            <!-- button section -->
                            <ul class="login">
                               <li class="login-modal">
-                                 <a href="#" class="login"><i class="fa fa-user"></i>Login</a>
+                                 <a style="background-color: #fbe400; color: #fff;" href="#" onclick="document.getElementById('id01').style.display='block'" class="login"><i class="fa fa-user"></i>Account</a>
                               </li>
-                              <li>
+                              <!-- <li>
                                  <div class="cart-option">
                                     <a href="#"><i class="fa fa-shopping-cart"></i>Register</a>
                                  </div>
-                              </li>
+                              </li> -->
                            </ul>
                            <!-- end button section -->
                         </div>
@@ -304,7 +398,7 @@
                <div class="col-lg-4 col-sm-4 col-xs-12">
                   <aside id="sidebar" class="left-bar">
                      <div class="banner-sidebar">
-                        <img class="img-responsive" src="images/img-05.jpg" alt="#" />
+                        <img class="img-responsive" src="./images/banner1.png" alt="#" />
                         <h3>Lorem Ipsum is simply dummy text..</h3>
                      </div>
                   </aside>
@@ -637,6 +731,18 @@
       </footer>
       <a href="#home" data-scroll class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
       <!-- ALL JS FILES -->
+       <script>
+         // Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+       </script>
+       <script src="./admin_area/script/login.js"></script>
       <script src="js/all.js"></script>
       <!-- ALL PLUGINS -->
       <script src="js/custom.js"></script>
